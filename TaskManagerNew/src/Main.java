@@ -147,6 +147,7 @@ public class Main {
             System.out.printf(format, "Due Date", task.getDueDate().toString());
             System.out.printf(format, "Prioritas", task.getPriority());
             System.out.printf(format, "Status", task.isCompleted() ? "Yes" : "No");
+            System.out.printf(format, "Status", task.getSubmissionInfo());
     
             if (!task.getAssignedMembers().isEmpty()) {
                 System.out.println("| Ditugaskan untuk   :                                   |");

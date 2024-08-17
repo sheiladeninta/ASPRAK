@@ -15,15 +15,15 @@ public class TaskManager {
         try {
             dueDate = dateFormat.parse(dueDateString);
         } catch (ParseException e) {
-            System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            System.out.println("Invalid date format. Gunakan YYYY-MM-DD.");
             return false;
         }
 
         if (findTaskById(id) != null) {
-            System.out.println("Task with this ID already exists.");
+            System.out.println("Task dengan ID ini sudah ada. Gunakan yang lain.");
             return false;
         }
-        Task task = new Task(id, title, description, dueDate, priority); // Perhatikan bahwa dueDate sekarang bertipe Date
+        Task task = new Task(id, title, description, dueDate, priority);
         tasks.add(task);
         System.out.println("Task berhasil ditambahkan!\n");
         return true;
@@ -31,13 +31,13 @@ public class TaskManager {
 
     public boolean addMember(String id, String name) {
         if (findMemberById(id) != null) {
-            System.out.println("Member with this ID already exists.");
-            return false; // Indikator bahwa member gagal ditambahkan
+            System.out.println("Member dengan ID ini sudah ada.");
+            return false;
         }
 
         members.add(new Member(id, name));
         System.out.println("Member berhasil ditambahkan!\n");
-        return true; // Indikator bahwa member berhasil ditambahkan
+        return true; 
     }
 
     public Task findTaskById(String id) {
@@ -99,10 +99,8 @@ public class TaskManager {
         Task task = findTaskById(taskId);
         if (task != null) {
             task.markAsCompleted();
-            // Hanya tampilkan pesan dalam satu tempat
             return true;
         } else {
-            // Hanya tampilkan pesan dalam satu tempat
             return false;
         }
     }
@@ -123,7 +121,7 @@ public class TaskManager {
 
     public List<Task> getAllTasksSortedByPriority() {
         List<Task> sortedTasks = new ArrayList<>(tasks);
-        sortedTasks.sort(Comparator.comparing(Task::getPriority)); // Asumsi priority adalah string. Jika menggunakan enum, ubah metode ini
+        sortedTasks.sort(Comparator.comparing(Task::getPriority));
         return sortedTasks;
     }
 }

@@ -67,9 +67,9 @@ public class Task {
     public void markAsCompleted() {
         Date now = new Date();
         if (now.before(dueDate)) {
-            this.submissionInfo = "Telah ditandai pada " + dateFormat.format(now);
+            this.submissionInfo = "Ditandai pada " + dateFormat.format(now);
         } else {
-            this.submissionInfo = "Penandaan terlambat pada " + dateFormat.format(now);
+            this.submissionInfo = "Terlambat pada " + dateFormat.format(now);
         }
         this.isCompleted = true;
     }
