@@ -118,7 +118,7 @@ public class Main {
         
         System.out.println("| Sort by:                                               |");
         System.out.println("| 1. Due Date                                            |");
-        System.out.println("| 2. Priority                                            |");
+        System.out.println("| 2. Prioritas                                           |");
         printLine();
         System.out.print("Masukkan pilihanmu: ");
         int sortChoice = scanner.nextInt();
@@ -139,23 +139,23 @@ public class Main {
         }
     
         for (Task task : tasksToDisplay) {
-            printLine();  // Menambahkan garis di atas Title
-            String format = "| %-18s : %-33s |\n"; // Format kolom untuk menyelaraskan teks
+            printLine();
+            String format = "| %-18s : %-33s |\n";
             
-            System.out.printf(format, "Title", task.getTitle());
-            System.out.printf(format, "Description", task.getDescription());
+            System.out.printf(format, "Judul", task.getTitle());
+            System.out.printf(format, "Deskripsi", task.getDescription());
             System.out.printf(format, "Due Date", task.getDueDate().toString());
-            System.out.printf(format, "Priority", task.getPriority());
-            System.out.printf(format, "Completed", task.isCompleted() ? "Yes" : "No");
+            System.out.printf(format, "Prioritas", task.getPriority());
+            System.out.printf(format, "Status", task.isCompleted() ? "Yes" : "No");
     
             if (!task.getAssignedMembers().isEmpty()) {
-                System.out.println("| Assigned Members   :                                   |");
-                for (Member member : task.getAssignedMembers()) {
+                System.out.println("| Ditugaskan untuk   :                                   |");
+                for (Member member : task.getAssignedMembers()) {                              
                     System.out.printf("|- ID                : %-33s |\n", member.getId());
-                    System.out.printf("|- Name              : %-33s |\n", member.getName());
+                    System.out.printf("|- Nama              : %-33s |\n", member.getName());
                 }
-            } else {
-                System.out.printf("| Assigned Members   : %-33s |\n", "None");
+            } else {                                                   
+                System.out.printf("| Ditugaskan untuk   : %-33s |\n", "None");
             }
             
             printLine();
@@ -181,16 +181,16 @@ public class Main {
     
         for (Member member : taskManager.getAllMembers()) {
             System.out.printf("| ID        : %-42s |\n", member.getId());
-            System.out.printf("| Name      : %-42s |\n", member.getName());
+            System.out.printf("| Nama      : %-42s |\n", member.getName());
     
-            if (!member.getAssignedTasks().isEmpty()) {
-                System.out.println("| Assigned Members   :                                   |");
+            if (!member.getAssignedTasks().isEmpty()) {                                                                                
+                System.out.println("| Tasks     :                                            |");
                 for (Task task : member.getAssignedTasks()) {
-                    System.out.printf("|- ID                : %-33s |\n", task.getId());
-                    System.out.printf("|- Title             : %-33s |\n", task.getTitle());
+                    System.out.printf("|- ID       : %-33s          |\n", task.getId());
+                    System.out.printf("|- Judul    : %-33s          |\n", task.getTitle());
                 }
             } else {
-                System.out.printf("| Assigned Tasks: %-38s |\n", "None");
+                System.out.printf("| Tasks     : %-38s     |\n", "None");
             }
             
             printLine();
